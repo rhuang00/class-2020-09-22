@@ -81,11 +81,15 @@ sep_new <- read_excel("new_data/new_data.xlsx",
 
 Before we start on the model, Wisdom suggests we should:
 
+- define precisely what we want to know
+- in this case, we want to know the difference between the new and old course enrollment numbers.
+
 
 
 
 After we have a model, Temperance suggests we should:
-
+- Acknowledge and remember that our model has limitations.
+- In this case, the pandemic may force students in or out of enrollment
 
 
 ### Scene 3
