@@ -40,6 +40,8 @@ sep_old <-
          title = course_title,
          name = course_name,
          department = course_department) %>% 
+  group_by(id, title, name, department) %>% 
+  summarize(u_grad = sum(u_grad), .groups = "drop") %>% 
   filter(u_grad > 10)
 
 # But this is not correct! Look for Gov 50: Data. What do you see? What can you
