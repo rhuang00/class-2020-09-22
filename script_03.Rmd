@@ -54,6 +54,25 @@ sep_old <-
 **Prompt:** Read in and clean the new data, creating an object called `sep_new`. 
 
 
+**Prompt:**  First, figure out what is wrong with the `sep_old` object. Edit the code below to fix it. Read the comments for hints.
+
+```{r sc1}
+sep_new <- read_excel("new_data/new_data.xlsx", 
+             skip = 3) %>% 
+  clean_names() %>% 
+  filter(! is.na(course_title)) %>% 
+  select(-grad, -non_degree, -x_reg, -vus, -employee, 
+         -withdraw, -total, -instructor_full_name, -course_section_code) %>%
+  rename(id = course_id,
+         title = course_title,
+         name = course_name,
+         department = course_department) %>% 
+  group_by(id, title, name, department) %>% 
+  summarize(u_grad = sum(u_grad), .groups = "drop") %>% 
+  filter(u_grad > 10)
+
+```
+
 
 ### Scene 2
 
